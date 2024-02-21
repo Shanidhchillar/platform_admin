@@ -12,3 +12,7 @@
     margin-right: 10px; /* Add margin for separation from the table */
   }
   
+
+  #pageSize {
+    width: 80px; /* Set the desired width */
+  }  

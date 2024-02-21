@@ -15,7 +15,6 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { DoctorsComponent } from './doctors/doctors.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
