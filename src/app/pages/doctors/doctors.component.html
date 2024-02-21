@@ -1,3 +1,5 @@
+<!-- doctors.component.html -->
+
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
@@ -8,8 +10,10 @@
               <div class="col-md-6">
                 <h4 class="title">Doctors List</h4>
               </div>
-              <div class="col-md-6">
-                <!-- Place the search field in the same row as the header -->
+              <div class="col-md-3 text-right">
+                <button mat-button class="btn btn-info fw-normal" (click)="CreateDoctor();">Add Doctor</button>
+              </div>
+              <div class="col-md-3">
                 <div class="search-container">
                   <input type="text" class="form-control small-search" placeholder="Search" (input)="applyFilter($event.target.value)">
                 </div>
@@ -20,25 +24,25 @@
             <table class="table table-hover table-striped">
               <thead>
                 <tr>
-                  <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                  <th *ngFor="let cell of displayedColumns">{{ cell }}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let row of getPaginatedData()">
-                  <td *ngFor="let cell of row">{{ cell }}</td>
+                <tr *ngFor="let row of originalData">
+                  <td *ngFor="let cell of Object.values(row)">{{ cell }}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <!-- Custom pagination -->
-          <mat-paginator [length]="filteredData.length"
+          <mat-paginator [length]="Tcount"
                [pageSize]="pageSize"
-               [pageSizeOptions]="itemsPerPageOptions"
+               [pageSizeOptions]="pageSizeOptions"
                (page)="onPageChange($event)"
                aria-label="Select page"
                [showFirstLastButtons]="true">
-</mat-paginator>
+          </mat-paginator>
         </div>
       </div>
     </div>

@@ -1,77 +1,104 @@
+// doctors.component.ts
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
+import { AuthService } from 'app/services/auth.service';
+import { SnackbarService } from 'app/services/snackbar.service';
 
-declare interface TableData {
-  headerRow: string[];
-  dataRows: string[][];
+export interface PeriodicElement {
+  ID: number;
 }
 
 @Component({
-  selector: 'app-tables',
+  selector: 'app-doctors',
   templateUrl: './doctors.component.html',
   styleUrls: ['./doctors.component.css'],
 })
 export class DoctorsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  public tableData1: TableData;
-  displayedColumns: string[] = ['ID', 'Name', 'Country', 'City', 'Salary'];
-  dataRows: string[][];
+  displayedColumns: string[] = ['ID', 'doctor_name'];
+  originalData: PeriodicElement[] = [];
   pageSize: number = 5;
-  currentPage: number = 1;
-  totalPages: number;
-  itemsPerPageOptions: number[] = [5, 10, 25, 50];
+  pageIndex = 0;
+  Tcount: number = 0;
+  pageSizeOptions: number[] = [];
   searchValue: string = '';
+  isLoading: boolean = false;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private snackbarService: SnackbarService,
+    private service: AuthService
+  ) {}
 
   ngOnInit() {
-    this.tableData1 = {
-      headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
-      dataRows: [
-        ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-        ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-        ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-        ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-        ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-        ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
-      ]
-    };
-
-    this.filteredData = this.tableData1.dataRows;
-    this.calculateTotalPages();
+    this.getDoctors();
   }
 
-  filteredData: string[][];
+  getDoctors() {
+    this.isLoading = true;
+
+    const page = this.pageIndex * this.pageSize;
+    const limit = this.pageSize;
+
+    this.service.post({ page, limit }, '/api/v1/auth/list-doctors/').subscribe(
+      (response) => {
+        if (response.statusCode === '200') {
+          console.log("helllooooooooooooooooooooooooooooo")
+          this.originalData = response.data.response.map(
+            (services: any, index: number) => ({
+              ID: page + index + 1,
+              doctor_name: services.doctor_name,
+            })
+          );
+
+          this.Tcount = response.Tcount;
+          this.pageSizeOptions = this.calculatePageSizeOptions(this.Tcount);
+        } else if (response.code === '500') {
+          this.snackbarService.showCustomSnackBarError(
+            response.servicesList
+          );
+        }
+        this.isLoading = false;
+      },
+      (error) => {
+        this.isLoading = false;
+        console.error('API call failed:', error);
+        this.snackbarService.showCustomSnackBarError(error);
+      }
+    );
+  }
+
+  calculatePageSizeOptions(Tcount: number): number[] {
+    const options: number[] = [];
+    for (let i = 5; i <= Tcount; i += 5) {
+      options.push(i);
+    }
+    return options;
+  }
 
   applyFilter(filterValue: string) {
     this.searchValue = filterValue.toLowerCase();
-    this.filteredData = this.tableData1.dataRows.filter(row =>
-      row.some(cell => cell.toLowerCase().includes(this.searchValue))
+    // Filter the data based on your specific requirements
+    // You might need to implement a custom filtering logic based on your data structure
+    // For simplicity, I'm filtering by ID here
+    this.originalData = this.originalData.filter((row) =>
+      row.ID.toString().includes(this.searchValue)
     );
-    this.calculateTotalPages();
+
     this.paginator.firstPage();
   }
 
-  calculateTotalPages() {
-    this.totalPages = Math.ceil(this.filteredData.length / this.pageSize);
+  onPageChange(event: any) {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.getDoctors();
   }
 
-  getPaginatedData(): string[][] {
-    const startIndex = (this.currentPage - 1) * this.pageSize;
-    const endIndex = startIndex + this.pageSize;
-    return this.filteredData.slice(startIndex, endIndex);
-  }
-
-  onPageChange(newPage: number) {
-    this.currentPage = newPage;
-    this.applyFilter(this.searchValue);
-  }
-  
-
-  onPageSizeChange(newPageSize: number) {
-    this.pageSize = newPageSize;
-    this.currentPage = 1;
-    this.applyFilter(this.searchValue);
+  CreateDoctor() {
+    this.router.navigate(['create_doctor']);
   }
 }
+

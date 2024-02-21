@@ -1,0 +1,59 @@
+
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 15%;
+  }
+  
+  .card {
+    width: 300px;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #000;
+    border: 2px solid #bdbdbd;
+}
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff !important;
+    background-color: #154581 ;
+    cursor: pointer;
+  }
+  
+  .switch {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    color: #fff;
+  }
+  
+  @media (max-width: 480px) {
+    .card {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
