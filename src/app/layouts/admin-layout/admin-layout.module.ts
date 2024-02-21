@@ -21,6 +21,7 @@ import { CreateDoctorComponent } from 'app/pages/doctors/CreateDoctor/CreateDoct
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from 'app/pages/login/login.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { LoginComponent } from 'app/pages/login/login.component';
     ReactiveFormsModule, // Add this line
     MatFormFieldModule, // Include MatFormFieldModule if not imported
     MatSelectModule,
+    MatTableModule
   ],
   declarations: [
     HomeComponent,

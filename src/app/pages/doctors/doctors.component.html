@@ -15,23 +15,50 @@
               </div>
               <div class="col-md-3">
                 <div class="search-container">
-                  <input type="text" class="form-control small-search" placeholder="Search" (input)="applyFilter($event.target.value)">
+                  <!-- Bind the input value to the searchValue property -->
+                  <!-- Bind the input value to the searchValue property and update applyFilter method call -->
+                  <input type="text" class="form-control small-search" placeholder="Search" [(ngModel)]="searchValue" (input)="applyFilter(searchValue)">
+
                 </div>
               </div>
             </div>
           </div>
           <div class="content table-responsive table-full-width">
-            <table class="table table-hover table-striped">
-              <thead>
-                <tr>
-                  <th *ngFor="let cell of displayedColumns">{{ cell }}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let row of originalData">
-                  <td *ngFor="let cell of Object.values(row)">{{ cell }}</td>
-                </tr>
-              </tbody>
+            <table mat-table [dataSource]="dataSource" class="text-nowrap w-100" style="width: 100%;">
+
+              <!-- ID Column -->
+              <ng-container matColumnDef="ID">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell class="fw-medium" *matCellDef="let element"> {{ element.ID }} </td>
+              </ng-container>
+
+              <!-- Doctor Name Column -->
+              <ng-container matColumnDef="doctor_name">
+                <th mat-header-cell *matHeaderCellDef> Doctor Name </th>
+                <td mat-cell *matCellDef="let element"> {{ element.doctor_name }} </td>
+              </ng-container>
+
+              <!-- Doctor Phone Column -->
+              <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+                <td mat-cell *matCellDef="let element"> {{ element.phone }} </td>
+              </ng-container>
+
+              <!-- Doctor Consultation Charge -->
+              <ng-container matColumnDef="consultation_charge">
+                <th mat-header-cell *matHeaderCellDef> Consultation Charge </th>
+                <td mat-cell *matCellDef="let element"> {{ element.consultation_charge }} </td>
+              </ng-container>
+
+              <!-- Doctor Description -->
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let element"> {{ element.description }} </td>
+              </ng-container>
+
+              <!-- Header and Row Definitions -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
           </div>
 
