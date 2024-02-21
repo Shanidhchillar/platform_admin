@@ -16,6 +16,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
+import { CustomersComponent } from 'app/pages/customers/customers.component';
 import { UserComponent } from 'app/pages/user/user.component';
 
 
@@ -32,6 +33,7 @@ import { UserComponent } from 'app/pages/user/user.component';
     HomeComponent,
     UserComponent,
     DoctorsComponent,
+    CustomersComponent
     // TypographyComponent,
     // IconsComponent,
     // MapsComponent,
