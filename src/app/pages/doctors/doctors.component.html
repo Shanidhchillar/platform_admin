@@ -39,9 +39,9 @@
               </ng-container>
 
               <!-- Doctor Phone Column -->
-              <ng-container matColumnDef="phone">
+              <ng-container matColumnDef="doctor_phone">
                 <th mat-header-cell *matHeaderCellDef> Contact Number </th>
-                <td mat-cell *matCellDef="let element"> {{ element.phone }} </td>
+                <td mat-cell *matCellDef="let element"> {{ element.doctor_phone }} </td>
               </ng-container>
 
               <!-- Doctor Consultation Charge -->
@@ -54,6 +54,18 @@
               <ng-container matColumnDef="description">
                 <th mat-header-cell *matHeaderCellDef> Description </th>
                 <td mat-cell *matCellDef="let element"> {{ element.description }} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-icon-button (click)="editDoctor(element)">
+                    <mat-icon color="primary">edit</mat-icon>
+                  </button>
+                  <button mat-icon-button (click)="deleteDoctor(element)">
+                    <mat-icon color="warn">delete</mat-icon>
+                  </button>
+                </td>
               </ng-container>
 
               <!-- Header and Row Definitions -->

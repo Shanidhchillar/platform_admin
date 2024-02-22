@@ -1,0 +1,41 @@
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+
+/* Add this to your doctors.component.css file */
+.search-container {
+    /* display: flex;
+    justify-content: flex-end; */
+    /* margin-bottom: 10px; */
+  }
+  
+  .small-search {
+    width: 250px; /* Adjust the width as needed */
+    margin-right: 10px; /* Add margin for separation from the table */
+  }
+  
+
+  #pageSize {
+    width: 80px; /* Set the desired width */
+  }  
+
+
+.custom-box {
+  min-width: 120px;
+}
+
+/* Mimic the FormControl and InputLabel styles */
+.form-control {
+  width: 100px;
+  margin-bottom: 16px; /* Adjust as needed */
+}
+
+/* Mimic the Select and MenuItem styles */
+.custom-select {
+  width: 100px;
+  padding: 10px; /* Adjust as needed */
+  box-sizing: border-box; 
+} 
+.small-button {
+  font-size: 12px; 
+  padding: 10px 10px;
+  margin-right: 100px;
+}

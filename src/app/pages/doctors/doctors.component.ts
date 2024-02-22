@@ -9,7 +9,7 @@ import { SnackbarService } from 'app/services/snackbar.service';
 export interface PeriodicElement {
   ID: number;
   doctor_name: string;
-  phone: string;
+  doctor_phone: string;
   consultation_charge: number;
   description: string;
 }
@@ -24,7 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class DoctorsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['ID', 'doctor_name', 'phone', 'consultation_charge', 'description'];
+  displayedColumns: string[] = ['ID', 'doctor_name', 'doctor_phone', 'consultation_charge', 'description', 'actions'];
   originalData: PeriodicElement[] = [];
   pageSize: number = 5;
   pageIndex = 0;
@@ -59,13 +59,13 @@ export class DoctorsComponent implements OnInit {
             (doctor: any) => ({
               ID: doctor.doctor_id,
               doctor_name: doctor.doctor_name,
-              phone: doctor.phone,
+              doctor_phone: doctor.doctor_phone,
               consultation_charge: doctor.consultation_charge,
               description: doctor.description,
             })
           );
 
-          this.Tcount = response.data.totalPages;
+          this.Tcount = response.data.totalCount;
           this.pageSizeOptions = this.calculatePageSizeOptions(this.Tcount);
 
           // Assign the data to dataSource
@@ -110,5 +110,17 @@ export class DoctorsComponent implements OnInit {
 
   CreateDoctor() {
     this.router.navigate(['create_doctor']);
+  }
+
+  // Function to handle edit button click
+  editDoctor(doctor: PeriodicElement) {
+    // Implement your logic for handling edit action
+    console.log('Edit Doctor:', doctor);
+  }
+
+  // Function to handle delete button click
+  deleteDoctor(doctor: PeriodicElement) {
+    // Implement your logic for handling delete action
+    console.log('Delete Doctor:', doctor);
   }
 }

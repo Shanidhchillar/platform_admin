@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { LoginComponent } from 'app/pages/login/login.component';
 import { MatTableModule } from '@angular/material/table';
+import { DepartmentsComponent } from 'app/pages/departments/departments.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { MatTableModule } from '@angular/material/table';
     UserComponent,
     DoctorsComponent,
     CreateDoctorComponent,
-    LoginComponent
+    LoginComponent,
+    DepartmentsComponent
     // TypographyComponent,
     // IconsComponent,
     // MapsComponent,
