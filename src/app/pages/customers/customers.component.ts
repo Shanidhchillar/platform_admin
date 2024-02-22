@@ -8,7 +8,11 @@ import { SnackbarService } from 'app/services/snackbar.service';
 
 export interface PeriodicElement {
   ID: number;
+  name: string;
+  phone: string;
 }
+
+const ELEMENT_DATA: PeriodicElement[] = [];
 
 @Component({
   selector: 'app-customers',
@@ -18,7 +22,7 @@ export interface PeriodicElement {
 export class CustomersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['ID', 'Name', 'Phone'];
+  displayedColumns: string[] = ['ID', 'name', 'phone'];
   originalData: PeriodicElement[] = [];
   pageSize: number = 5;
   pageIndex = 0;
@@ -26,6 +30,8 @@ export class CustomersComponent implements OnInit {
   pageSizeOptions: number[] = [];
   searchValue: string = '';
   isLoading: boolean = false;
+  dataSource: PeriodicElement[] = ELEMENT_DATA;
+  searchQuery: string = ''; // Initialize searchQuery
 
   constructor(
     private router: Router,
@@ -43,24 +49,25 @@ export class CustomersComponent implements OnInit {
     const page = this.pageIndex * this.pageSize;
     const limit = this.pageSize;
 
-    this.service.post({ page, limit }, '/api/v1/booking/listCustomers/').subscribe(
+    // Pass searchQuery to the API call
+    this.service.post({ page, limit, searchQuery: this.searchQuery }, 'api/v1/booking/listCustomers').subscribe(
       (response) => {
         if (response.statusCode === '200') {
-          console.log("helllooooooooooooooooooooooooooooo")
           this.originalData = response.data.response.map(
-            (services: any, index: number) => ({
-              ID: page + index + 1,
-              name: services.name,
-              phone: services.phone
+            (customer: any) => ({
+              ID: customer.id,
+              customer_name: customer.name,
+              phone: customer.phone,
             })
           );
 
-          this.Tcount = response.Tcount;
+          this.Tcount = response.data.totalPages;
           this.pageSizeOptions = this.calculatePageSizeOptions(this.Tcount);
-        } else if (response.code === '500') {
-          this.snackbarService.showCustomSnackBarError(
-            response.servicesList
-          );
+
+          // Assign the data to dataSource
+          this.dataSource = [...this.originalData];
+        } else if (response.statusCode === '500') {
+          this.snackbarService.showCustomSnackBarError(response.servicesList);
         }
         this.isLoading = false;
       },
@@ -81,15 +88,14 @@ export class CustomersComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.searchValue = filterValue.toLowerCase();
-    // Filter the data based on your specific requirements
-    // You might need to implement a custom filtering logic based on your data structure
-    // For simplicity, I'm filtering by ID here
-    this.originalData = this.originalData.filter((row) =>
-      row.ID.toString().includes(this.searchValue)
-    );
-
+    // Update the searchQuery with the provided filterValue
+    this.searchQuery = filterValue.toLowerCase();
+  
+    // Reset pagination on filter application
     this.paginator.firstPage();
+  
+    // Call getDoctors with the updated searchQuery
+    this.getCustomers();
   }
 
   onPageChange(event: any) {
@@ -98,8 +104,7 @@ export class CustomersComponent implements OnInit {
     this.getCustomers();
   }
 
-//   CreateDoctor() {
-//     this.router.navigate(['create_doctor']);
-//   }
+  // CreateDoctor() {
+  //   this.router.navigate(['create_doctor']);
+  // }
 }
-

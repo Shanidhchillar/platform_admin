@@ -43,7 +43,8 @@ import { MatTableModule } from '@angular/material/table';
     UserComponent,
     DoctorsComponent,
     CreateDoctorComponent,
-    LoginComponent
+    LoginComponent,
+    CustomersComponent
     // TypographyComponent,
     // IconsComponent,
     // MapsComponent,
