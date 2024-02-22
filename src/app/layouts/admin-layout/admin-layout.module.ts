@@ -18,6 +18,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
 import { CustomersComponent } from 'app/pages/customers/customers.component';
 import { UserComponent } from 'app/pages/user/user.component';
+import { CreateDoctorComponent } from 'app/pages/doctors/CreateDoctor/CreateDoctor.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { LoginComponent } from 'app/pages/login/login.component';
 
 
 @NgModule({
@@ -27,13 +31,17 @@ import { UserComponent } from 'app/pages/user/user.component';
     FormsModule,
     LbdModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'}),
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule, // Add this line
+    MatFormFieldModule, // Include MatFormFieldModule if not imported
+    MatSelectModule,
   ],
   declarations: [
     HomeComponent,
     UserComponent,
     DoctorsComponent,
-    CustomersComponent
+    CreateDoctorComponent,
+    LoginComponent
     // TypographyComponent,
     // IconsComponent,
     // MapsComponent,

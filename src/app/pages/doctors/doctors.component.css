@@ -2,9 +2,9 @@
 
 /* Add this to your doctors.component.css file */
 .search-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+    /* display: flex;
+    justify-content: flex-end; */
+    /* margin-bottom: 10px; */
   }
   
   .small-search {

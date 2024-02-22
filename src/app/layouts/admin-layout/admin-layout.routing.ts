@@ -9,12 +9,15 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { UserComponent } from 'app/pages/user/user.component';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
 import { CustomersComponent } from 'app/pages/customers/customers.component';
+import { CreateDoctorComponent } from 'app/pages/doctors/CreateDoctor/CreateDoctor.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
     { path: 'user',           component: UserComponent },
     { path: 'doctor',          component: DoctorsComponent },
     { path: 'customer',     component: CustomersComponent },
+    { path: 'create_doctor',   component: CreateDoctorComponent}
+    // { path: 'typography',     component: TypographyComponent },
     // { path: 'icons',          component: IconsComponent },
     // { path: 'maps',           component: MapsComponent },
     // { path: 'notifications',  component: NotificationsComponent },
