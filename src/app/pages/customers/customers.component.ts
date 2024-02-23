@@ -1,4 +1,3 @@
-// doctors.component.ts
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -22,7 +21,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class CustomersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['ID', 'name', 'phone'];
+  displayedColumns: string[] = ['ID', 'name', 'phone','action'];
   originalData: PeriodicElement[] = [];
   pageSize: number = 5;
   pageIndex = 0;
@@ -42,7 +41,11 @@ export class CustomersComponent implements OnInit {
   ngOnInit() {
     this.getCustomers();
   }
-
+  viewCustomerHistory(customerId: number) {
+    // Implement the logic to navigate to the customer history or perform any other action.
+    console.log(`View history for customer with ID: ${customerId}`);
+    // Add your navigation logic or open a dialog to show customer history.
+  }
   getCustomers() {
     this.isLoading = true;
 
@@ -94,7 +97,7 @@ export class CustomersComponent implements OnInit {
     // Reset pagination on filter application
     this.paginator.firstPage();
   
-    // Call getDoctors with the updated searchQuery
+    // Call getCustomers with the updated searchQuery
     this.getCustomers();
   }
 

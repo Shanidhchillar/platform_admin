@@ -21,7 +21,7 @@ export class AuthService {
   // baseURL = "http://35.154.16.95"
 
   /* NGROK LINK */
-  baseURL = "https://8d37-171-49-186-141.ngrok-free.app"
+  baseURL = "https://5f77-122-161-24-214.ngrok-free.app"
 
 
   // 1. Generic API Methods
