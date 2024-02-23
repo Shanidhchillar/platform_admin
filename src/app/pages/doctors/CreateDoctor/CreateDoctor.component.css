@@ -1,0 +1,26 @@
+/* This is an example of CSS styles for your CreateDoctor component */
+
+/* You can define styles for specific elements using their classes or IDs */
+.container {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .modal-header {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .modal-footer {
+    background-color: #f0f0f0;
+  }
+  
+  /* Add more styles as needed */
+  

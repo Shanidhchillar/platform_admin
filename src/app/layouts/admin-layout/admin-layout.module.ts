@@ -16,12 +16,16 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
+import { CustomersComponent } from 'app/pages/customers/customers.component';
+import { ReportComponent } from 'app/pages/report/report.component';
 import { UserComponent } from 'app/pages/user/user.component';
 import { CreateDoctorComponent } from 'app/pages/doctors/CreateDoctor/CreateDoctor.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { DepartmentsComponent } from 'app/pages/departments/departments.component';
+import { BankComponent } from 'app/pages/bank/bank.component';
+
 
 
 @NgModule({
@@ -42,7 +46,10 @@ import { DepartmentsComponent } from 'app/pages/departments/departments.componen
     UserComponent,
     DoctorsComponent,
     CreateDoctorComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    CustomersComponent,
+    ReportComponent,
+    BankComponent
     // TypographyComponent,
     // IconsComponent,
     // MapsComponent,
