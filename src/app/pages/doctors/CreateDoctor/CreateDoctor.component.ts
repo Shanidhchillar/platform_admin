@@ -1,25 +1,8 @@
-// import { Component, OnInit } from '@angular/core';
-
-
-// @Component({
-//   selector: 'app-CreateDoctor',
-//   templateUrl: './CreateDoctor.component.html',
-//   styleUrls: ['./CreateDoctor.component.scss']
-// })
-// export class CreateDoctorComponent implements OnInit {
-
-//   constructor() { }
-
-
-//   ngOnInit() {
-//   }
-
-// }
-
-
 import { Component } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlertService } from './SweetAlertService';
+import { Router } from '@angular/router';
+import { CreateDoctorsDataService } from 'app/services/createDoctor.service';
 
 @Component({
   selector: 'app-create-doctor',
@@ -27,8 +10,18 @@ import { SweetAlertService } from './SweetAlertService';
   styleUrls: ['./createDoctor.component.css']
 })
 export class CreateDoctorComponent {
+
+  doctorName: string = '';
+  doctorQualification: string = '';
+  doctorDesignation: string = '';
+  doctorDescription: string = '';
+  businessType: string = '';
   
-    constructor(private sweetAlertService: SweetAlertService) {}
+    constructor(
+      private sweetAlertService: SweetAlertService,
+      private router: Router,
+      private createDoctorsDataService: CreateDoctorsDataService
+      ) {}
   
     showSweetAlert() {
       const options = {
@@ -45,4 +38,22 @@ export class CreateDoctorComponent {
         }
       });
     }
+    CreateBank() {
+      // Save data using the service
+      const doctorData = {
+        doctor_name: this.doctorName,
+        qualification: this.doctorQualification,
+        designation: this.doctorDesignation,
+        description: this.doctorDescription,
+        business_type: this.businessType
+      };
+
+      // Save the data using the service
+      this.createDoctorsDataService.createDoctorsData = doctorData;
+      console.log('console for the create doctor',this.createDoctorsDataService.createDoctorsData)
+
+      this.router.navigate(['bank']);
+    }
   }
+
+  

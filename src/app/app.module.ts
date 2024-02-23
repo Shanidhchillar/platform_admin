@@ -18,6 +18,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    LoginLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

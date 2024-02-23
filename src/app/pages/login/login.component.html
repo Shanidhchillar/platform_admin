@@ -1,14 +1,14 @@
 <!-- login.component.html -->
 <div class="container">
   <div class="card text-center">
-    <img class="text-center" src="../../../assets/images/indel_new_logo.png" width="180" alt="Company Logo" />
+    <!-- <img class="text-center" src="../../../assets/images/indel_new_logo.png" width="180" alt="Company Logo" /> -->
     <br>
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <h2>Login</h2>
       <input type="email" placeholder="Email" name="email" formControlName="email">
       <input type="password" placeholder="Password" name="password" formControlName="password">
       <button type="submit" [disabled]="!myForm.valid" class="btn  fw-normal">Login</button>
-      <a href="#">Register as a customer?</a> <!-- Add an appropriate link or action -->
+      <a href="#">Register as a customer?</a> 
     </form>
   </div>
 </div>

@@ -19,7 +19,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'pe-7s-graph', class: '' },
     { path: '/user', title: 'User Profile',  icon:'pe-7s-user', class: '' },
     { path: '/doctor', title: 'Doctor List',  icon:'pe-7s-note2', class: '' },
-    { path: '/departments', title: 'Departments List',  icon:'pe-7s-users', class: '' }
+    { path: '/departments', title: 'Departments List',  icon:'pe-7s-users', class: '' },
     { path: '/customer', title: 'Customer',  icon:'pe-7s-news-paper', class: '' },
     { path: '/report', title: 'Report',  icon:'pe-7s-science', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'pe-7s-map-marker', class: '' },

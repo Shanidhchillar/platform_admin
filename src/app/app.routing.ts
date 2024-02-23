@@ -10,15 +10,17 @@ import { LoginLayoutComponent } from './layouts/login-layout/login-layout.compon
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
     path:'',
     component:LoginLayoutComponent,
     children: [
-      {path:"", redirectTo:"/login", pathMatch:"full"},
-      {path:"login", component:LoginComponent},
+      {
+        path: '',
+        loadChildren: () => import('./layouts/login-layout/login-layout.module').then(x => x.LoginLayoutModule)
+    }
     ]},
   {
     path: '',
@@ -30,7 +32,7 @@ const routes: Routes =[
   }]},
   {
     path: '**',
-    redirectTo: 'dashboard'
+    redirectTo: 'login'
   }
 ];
 
