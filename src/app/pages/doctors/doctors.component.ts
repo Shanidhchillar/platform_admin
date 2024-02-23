@@ -10,8 +10,8 @@ export interface PeriodicElement {
   ID: number;
   doctor_name: string;
   doctor_phone: string;
-  consultation_charge: number;
-  description: string;
+  entity_name: number;
+  department_name: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [];
@@ -24,7 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class DoctorsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['ID', 'doctor_name', 'doctor_phone', 'consultation_charge', 'description', 'actions'];
+  displayedColumns: string[] = ['ID', 'doctor_name', 'doctor_phone', 'entity_name', 'department_name', 'actions'];
   originalData: PeriodicElement[] = [];
   pageSize: number = 5;
   pageIndex = 0;
@@ -60,8 +60,8 @@ export class DoctorsComponent implements OnInit {
               ID: doctor.doctor_id,
               doctor_name: doctor.doctor_name,
               doctor_phone: doctor.doctor_phone,
-              consultation_charge: doctor.consultation_charge,
-              description: doctor.description,
+              entity_name: doctor.entity_name,
+              department_name: doctor.department_name,
             })
           );
 

@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export interface PeriodicElement {
   ID: number;
   department_name: string;
+  status: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [];
@@ -24,7 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class DepartmentsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['ID', 'department_name'];
+  displayedColumns: string[] = ['ID', 'department_name', 'status'];
   originalData: PeriodicElement[] = [];
   pageSize: number = 5;
   pageIndex = 0;
@@ -70,7 +71,8 @@ export class DepartmentsComponent implements OnInit {
         if (response.statusCode === 200) {
           this.originalData = response.data.data.map((department: any) => ({
             ID: department.department_id,
-            department_name: department.department_name
+            department_name: department.department_name,
+            status: department.status
           }));
   
           this.Tcount = response.data.totalCount;

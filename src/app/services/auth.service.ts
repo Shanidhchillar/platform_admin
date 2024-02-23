@@ -18,10 +18,10 @@ export class AuthService {
   // baseURL = "";
 
   /* UAT LINK */
-  // baseURL = "http://35.154.16.95"
+  baseURL = "http://13.232.174.81"
 
   /* NGROK LINK */
-  baseURL = "https://6c30-171-49-187-57.ngrok-free.app"
+  // baseURL = "https://5f77-122-161-24-214.ngrok-free.app"
 
 
   // 1. Generic API Methods
