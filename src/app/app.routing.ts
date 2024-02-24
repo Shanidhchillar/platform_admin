@@ -13,15 +13,15 @@ const routes: Routes =[
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  {
-    path:'',
-    component:LoginLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./layouts/login-layout/login-layout.module').then(x => x.LoginLayoutModule)
-    }
-    ]},
+  // {
+  //   path:'',
+  //   component:LoginLayoutComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       loadChildren: () => import('./layouts/login-layout/login-layout.module').then(x => x.LoginLayoutModule)
+  //   }
+  //   ]},
   {
     path: '',
     component: AdminLayoutComponent, 
