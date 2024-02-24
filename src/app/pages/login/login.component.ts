@@ -49,13 +49,10 @@ onSubmit() {
         console.log(`login success`, response);
         this.myForm.reset();
         if (response.statusCode === 200) {
-          // localStorage.setItem('token',response.data.token)
+          localStorage.setItem('token',response.data.accessToken)
           // localStorage.setItem('user',JSON.stringify(response.data))
           // localStorage.setItem('user_id',response.data.user_id)
-          // localStorage.setItem('user_type',response.data.user_type)
-          console.log(response.txt);
-          // this.userPhoneService.UserPhone = Phone
-          // console.log("=-=-=-=phone=-=-=",this.userPhoneService.UserPhone)
+          // localStorage.setItem('user_type',response.data.user_type
           this.router.navigate(['/dashboard']);
           
         } else if (response.statusCode === 400) {
