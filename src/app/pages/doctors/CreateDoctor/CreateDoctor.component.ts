@@ -20,6 +20,8 @@ export class CreateDoctorComponent implements OnInit {
   doctorDesignation: string = '';
   doctorDescription: string = '';
   businessType: string = '';
+  phone: string = '';
+  email: string = '';
 
   doctorForm: FormGroup;
   
@@ -39,6 +41,8 @@ export class CreateDoctorComponent implements OnInit {
         doctorQualification: ['', Validators.required],
         doctorDesignation: ['', Validators.required],
         doctorDescription: ['', Validators.required],
+        phone: ['', Validators.required],
+        email: ['', Validators.required]
         // Add more fields and validators as needed
       });
   
@@ -73,7 +77,9 @@ export class CreateDoctorComponent implements OnInit {
           qualification: this.doctorForm.get('doctorQualification').value,
           designation: this.doctorForm.get('doctorDesignation').value,
           description: this.doctorForm.get('doctorDescription').value,
-          business_type: this.doctorForm.get('businessType').value
+          business_type: this.doctorForm.get('businessType').value,
+          phone: this.doctorForm.get('phone').value,
+          email: this.doctorForm.get('email').value
         };
   
         // Save the data using the service
