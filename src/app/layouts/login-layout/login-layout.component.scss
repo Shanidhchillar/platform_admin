@@ -1,0 +1,41 @@
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 200px;
+  }
+  
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  // .body-wrapper{
+  //   flex: 1;
+  // }
+  
+  
+  // .footer {
+  //   position: absolute;
+  //   bottom: 0;
+  //   text-align: center;
+  //   padding: 12px;
+  //   width: 100%;
+  // }
+  
+  /* Add this to your component's CSS or a global stylesheet */
+  .active-link {
+    color: #fff !important;
+  }
+  
+  /* Default link color when not active */
+  .sidebar-menu {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+  

@@ -17,7 +17,7 @@
                 <div class="search-container">
                   <!-- Bind the input value to the searchValue property -->
                   <!-- Bind the input value to the searchValue property and update applyFilter method call -->
-                  <input type="text" class="form-control small-search" placeholder="Search" [(ngModel)]="searchValue" (input)="applyFilter(searchValue)">
+                  <input type="text" class="form-control small-search" placeholder="Search" (input)="applyFilter($event.target.value)">
 
                 </div>
               </div>
@@ -39,21 +39,34 @@
               </ng-container>
 
               <!-- Doctor Phone Column -->
-              <ng-container matColumnDef="phone">
+              <ng-container matColumnDef="doctor_phone">
                 <th mat-header-cell *matHeaderCellDef> Contact Number </th>
-                <td mat-cell *matCellDef="let element"> {{ element.phone }} </td>
+                <td mat-cell *matCellDef="let element"> {{ element.doctor_phone }} </td>
               </ng-container>
 
               <!-- Doctor Consultation Charge -->
-              <ng-container matColumnDef="consultation_charge">
-                <th mat-header-cell *matHeaderCellDef> Consultation Charge </th>
-                <td mat-cell *matCellDef="let element"> {{ element.consultation_charge }} </td>
+              <ng-container matColumnDef="entity_name">
+                <th mat-header-cell *matHeaderCellDef> Entity Name </th>
+                <td mat-cell *matCellDef="let element"> {{ element.entity_name }} </td>
               </ng-container>
 
               <!-- Doctor Description -->
-              <ng-container matColumnDef="description">
+              <ng-container matColumnDef="department_name">
                 <th mat-header-cell *matHeaderCellDef> Description </th>
-                <td mat-cell *matCellDef="let element"> {{ element.description }} </td>
+                <td mat-cell *matCellDef="let element"> {{ element.department_name }} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-icon-button (click)="editDoctor(element)">
+                    <!-- <button mat-button class="btn btn-info fw-normal" (click)="editDoctor();">Edit</button> -->
+                    <mat-icon color="primary">Edit</mat-icon> 
+                  </button> 
+                  <button mat-icon-button (click)="deleteDoctor(element)">
+                    <mat-icon color="warn">delete</mat-icon>
+                  </button>
+                </td>
               </ng-container>
 
               <!-- Header and Row Definitions -->

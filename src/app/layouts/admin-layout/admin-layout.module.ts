@@ -22,9 +22,10 @@ import { UserComponent } from 'app/pages/user/user.component';
 import { CreateDoctorComponent } from 'app/pages/doctors/CreateDoctor/CreateDoctor.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { LoginComponent } from 'app/pages/login/login.component';
 import { MatTableModule } from '@angular/material/table';
+import { DepartmentsComponent } from 'app/pages/departments/departments.component';
 import { BankComponent } from 'app/pages/bank/bank.component';
+import { EditDoctorComponent } from 'app/pages/doctors/EditDoctor/editDoctor.component';
 
 
 
@@ -46,10 +47,11 @@ import { BankComponent } from 'app/pages/bank/bank.component';
     UserComponent,
     DoctorsComponent,
     CreateDoctorComponent,
-    LoginComponent,
+    DepartmentsComponent,
     CustomersComponent,
     ReportComponent,
-    BankComponent
+    BankComponent,
+    EditDoctorComponent
     // TypographyComponent,
     // IconsComponent,
     // MapsComponent,

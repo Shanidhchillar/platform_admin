@@ -27,7 +27,7 @@ export interface PeriodicElement {
   amount: number;
   paymentOrderId: string;
   paymentTransactionId: string;
-  appointmentDate: Date;
+  paymentDate: Date;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [];
@@ -40,7 +40,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class ReportComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['Id', 'customerName', 'customerPhone', 'doctorName', 'amount', 'paymentOrderId', 'paymentTransactionId', 'appointmentDate'];
+  displayedColumns: string[] = ['Id', 'customerName', 'customerPhone', 'doctorName', 'amount', 'paymentOrderId', 'paymentTransactionId', 'paymentDate'];
   originalData: PeriodicElement[] = [];
   pageSize: number = 5;
   pageIndex = 0;
@@ -82,7 +82,7 @@ export class ReportComponent implements OnInit {
               amount: report.amount,
               paymentOrderId: report.paymentOrderId,
               paymentTransactionId: report.paymentTransactionId,
-              appointmentDate: report.appointmentDate
+              paymentDate: report.paymentDate
             })
           );
 
