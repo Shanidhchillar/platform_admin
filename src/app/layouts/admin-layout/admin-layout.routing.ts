@@ -10,9 +10,10 @@ import { UserComponent } from 'app/pages/user/user.component';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
 import { CustomersComponent } from 'app/pages/customers/customers.component';
 import { CreateDoctorComponent } from 'app/pages/doctors/CreateDoctor/CreateDoctor.component';
-import { DepartmentsComponent } from 'app/pages/departments/departments.component';
 import { ReportComponent } from 'app/pages/report/report.component';
 import { BankComponent } from 'app/pages/bank/bank.component';
+import { DepartmentsComponent } from 'app/pages/departments/departments.component';
+import { EditDoctorComponent } from 'app/pages/doctors/EditDoctor/editDoctor.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
@@ -23,7 +24,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'departments',     component: DepartmentsComponent},
     { path: 'report',     component: ReportComponent },
     { path: 'bank',          component: BankComponent },
-    // { path: 'maps',           component: MapsComponent },
+    { path: 'edit_doctor',           component: EditDoctorComponent },
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent },
 ];

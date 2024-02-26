@@ -25,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { DepartmentsComponent } from 'app/pages/departments/departments.component';
 import { BankComponent } from 'app/pages/bank/bank.component';
+import { EditDoctorComponent } from 'app/pages/doctors/EditDoctor/editDoctor.component';
 
 
 
@@ -49,7 +50,8 @@ import { BankComponent } from 'app/pages/bank/bank.component';
     DepartmentsComponent,
     CustomersComponent,
     ReportComponent,
-    BankComponent
+    BankComponent,
+    EditDoctorComponent
     // TypographyComponent,
     // IconsComponent,
     // MapsComponent,

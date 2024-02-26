@@ -117,6 +117,7 @@ export class DoctorsComponent implements OnInit {
 
   // Function to handle edit button click
   editDoctor(doctor: PeriodicElement) {
+    this.router.navigate(['edit_doctor']);
     // Implement your logic for handling edit action
     console.log('Edit Doctor:', doctor);
   }
