@@ -1,7 +1,6 @@
 <!-- Add this in your HTML head section -->
 
-
-<div class="main-content" >
+<div class="main-content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -10,32 +9,29 @@
                         <h4 class="title">BUSINESS</h4>
                     </div>
                     <div class="content">
-                        <form>
-                                                   
+                        <form [formGroup]="BankForm" (ngSubmit)="validateForm()">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <h4>BANK</h4>
                                         <label>Bank Account Number</label>
-                                        <input type="text" class="form-control" placeholder="Bank account number" value="">
+                                        <input type="text" class="form-control" placeholder="Bank account number" formControlName="account_no">
                                         <label>Bank IFSC</label>
-                                        <input type="text" class="form-control" placeholder="Bank Ifsc" value="">
+                                        <input type="text" class="form-control" placeholder="Bank Ifsc" formControlName="ifsc_code">
                                         <label>Bank Name</label>
-                                        <input type="text" class="form-control" placeholder="Bank name" value="">
+                                        <input type="text" class="form-control" placeholder="Bank name" formControlName="bank_name">
                                         <label>Bank Account Holder Name</label>
-                                        <input type="text" class="form-control" placeholder="Bank account holder name" value="">
+                                        <input type="text" class="form-control" placeholder="Bank account holder name" formControlName="account_holder_name">
                                     </div>
                                 </div>
                             </div>
 
-                            
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Save and Continue</button>
+                            <button type="submit" class="btn btn-info btn-fill pull-right" [disabled]="!BankForm.valid">Save and Continue</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

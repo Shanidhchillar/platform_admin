@@ -20,7 +20,6 @@ import { LoginLayoutRoutes } from './login-layout.routing';
     RouterModule.forChild(LoginLayoutRoutes),
     FormsModule,
     LbdModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'}),
     MatPaginatorModule,
     ReactiveFormsModule, // Add this line
     MatFormFieldModule, // Include MatFormFieldModule if not imported

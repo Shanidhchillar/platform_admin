@@ -1,34 +1,54 @@
-// import { Component, OnInit } from '@angular/core';
-
-
-// @Component({
-//   selector: 'app-CreateDoctor',
-//   templateUrl: './CreateDoctor.component.html',
-//   styleUrls: ['./CreateDoctor.component.scss']
-// })
-// export class CreateDoctorComponent implements OnInit {
-
-//   constructor() { }
-
-
-//   ngOnInit() {
-//   }
-
-// }
-
-
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlertService } from './SweetAlertService';
+import { Router } from '@angular/router';
+import { CreateDoctorsDataService } from 'app/services/createDoctor.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SnackbarService } from 'app/services/snackbar.service';
 
 @Component({
   selector: 'app-create-doctor',
   templateUrl: './createDoctor.component.html',
   styleUrls: ['./createDoctor.component.css']
 })
-export class CreateDoctorComponent {
+
+
+export class CreateDoctorComponent implements OnInit {
+
+  doctorName: string = '';
+  doctorQualification: string = '';
+  doctorDesignation: string = '';
+  doctorDescription: string = '';
+  businessType: string = '';
+  phone: string = '';
+  email: string = '';
+
+  doctorForm: FormGroup;
   
-    constructor(private sweetAlertService: SweetAlertService) {}
+    constructor(
+      private formBuilder: FormBuilder,
+      private sweetAlertService: SweetAlertService,
+      private router: Router,
+      private createDoctorsDataService: CreateDoctorsDataService,
+      private snackbarService: SnackbarService
+      ) {}
+
+    ngOnInit() {
+        // Initialize your form with validators
+      this.doctorForm = this.formBuilder.group({
+        businessType: ['', Validators.required],
+        doctorName: ['', Validators.required],
+        doctorQualification: ['', Validators.required],
+        doctorDesignation: ['', Validators.required],
+        doctorDescription: ['', Validators.required],
+        phone: ['', Validators.required],
+        email: ['', Validators.required]
+        // Add more fields and validators as needed
+      });
+  
+      // You can log the form's validity here
+      console.log('Form is valid:', this.doctorForm.valid);
+    }  
   
     showSweetAlert() {
       const options = {
@@ -45,4 +65,34 @@ export class CreateDoctorComponent {
         }
       });
     }
+    CreateBank() {
+      // Check if the form is valid
+      if (this.doctorForm.valid) {
+
+        console.log('Doctor Name:', this.doctorForm.get('doctorName').value);
+        console.log('Doctor Qualification:', this.doctorQualification);
+        // Save data using the service
+        const doctorData = {
+          doctor_name: this.doctorForm.get('doctorName').value,
+          qualification: this.doctorForm.get('doctorQualification').value,
+          designation: this.doctorForm.get('doctorDesignation').value,
+          description: this.doctorForm.get('doctorDescription').value,
+          business_type: this.doctorForm.get('businessType').value,
+          phone: this.doctorForm.get('phone').value,
+          email: this.doctorForm.get('email').value
+        };
+  
+        // Save the data using the service
+        this.createDoctorsDataService.createDoctorsData = doctorData;
+        console.log('console for the create doctor', this.createDoctorsDataService.createDoctorsData)
+  
+        this.router.navigate(['bank']);
+      } else {
+        // Optionally, you can show a message or perform some other action when the form is not valid
+        console.log('Form is not valid. Cannot proceed with navigation.');
+        this.snackbarService.showCustomSnackBarError('Form is not valid. Cannot proceed with navigation.');
+      }
+    }
   }
+
+  

@@ -5,9 +5,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
 import { SnackbarService } from 'app/services/snackbar.service';
+import Swal from 'sweetalert2';
 
 export interface PeriodicElement {
   ID: number;
+  doctor_id: number;
   doctor_name: string;
   doctor_phone: string;
   entity_name: number;
@@ -56,8 +58,9 @@ export class DoctorsComponent implements OnInit {
       (response) => {
         if (response.statusCode === '200') {
           this.originalData = response.data.response.map(
-            (doctor: any) => ({
-              ID: doctor.doctor_id,
+            (doctor: any, index: number) => ({
+              ID: page + index + 1,
+              doctor_id: doctor.doctor_id,
               doctor_name: doctor.doctor_name,
               doctor_phone: doctor.doctor_phone,
               entity_name: doctor.entity_name,
@@ -120,8 +123,32 @@ export class DoctorsComponent implements OnInit {
   }
 
   // Function to handle delete button click
+  // Function to handle delete button click
   deleteDoctor(doctor: PeriodicElement) {
-    // Implement your logic for handling delete action
-    console.log('Delete Doctor:', doctor);
+    // Show SweetAlert confirmation popup
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this record!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // If user clicks "Yes", implement your logic for handling delete action
+        this.confirmDelete(doctor.doctor_id);
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // If user clicks "No", show a confirmation message
+        Swal.fire('Cancelled', 'The record is safe :)', 'info');
+      }
+    });
   }
+
+  // Function to handle confirmed delete action
+  confirmDelete(doctorId: number) {
+    // Implement your logic for handling delete action
+    console.log('Delete Doctor:', doctorId);
+    // You can call your service method to delete the record here
+  }
+
 }
