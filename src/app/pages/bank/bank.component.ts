@@ -24,7 +24,7 @@ export class BankComponent implements OnInit {
 
     this.BankForm = this.formBuilder.group({
       account_no: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
-      ifsc_code: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(10)]],
+      ifsc_code: ['', [Validators.required, Validators.min(10)]],
       bank_name: ['', [Validators.required]],
       account_holder_name: ['', [Validators.required]],
     });
@@ -43,8 +43,8 @@ export class BankComponent implements OnInit {
         business_type : this.createDoctorsDataService.createDoctorsData.business_type,
         doctor_name : this.createDoctorsDataService.createDoctorsData.doctor_name,
         qualification : this.createDoctorsDataService.createDoctorsData.qualification,
-        consultation_time: 15,
-        consultation_charge : "100",
+        consultation_time: this.createDoctorsDataService.createDoctorsData.consultation_time,
+        consultation_charge : this.createDoctorsDataService.createDoctorsData.consultation_charge,
         account_no: this.BankForm.get('account_no').value,
         ifsc_code: this.BankForm.get('ifsc_code').value,
         bank_name: this.BankForm.get('bank_name').value,

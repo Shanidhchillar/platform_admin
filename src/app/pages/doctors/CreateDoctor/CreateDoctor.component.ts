@@ -15,6 +15,7 @@ import { SnackbarService } from 'app/services/snackbar.service';
 
 export class CreateDoctorComponent implements OnInit {
 
+  consultationDuration: string = '';
   doctorName: string = '';
   doctorQualification: string = '';
   doctorDesignation: string = '';
@@ -22,6 +23,9 @@ export class CreateDoctorComponent implements OnInit {
   businessType: string = '';
   phone: string = '';
   email: string = '';
+  consultationCharge: string = '';
+  entity: string = '';
+  entityName: string = '';
 
   doctorForm: FormGroup;
   
@@ -42,7 +46,11 @@ export class CreateDoctorComponent implements OnInit {
         doctorDesignation: ['', Validators.required],
         doctorDescription: ['', Validators.required],
         phone: ['', Validators.required],
-        email: ['', Validators.required]
+        email: ['', Validators.required],
+        consultationDuration: ['', Validators.required],
+        consultationCharge: ['', Validators.required],
+        entity: ['', Validators.required],
+        entityName: ['', Validators.required]
         // Add more fields and validators as needed
       });
   
@@ -79,7 +87,11 @@ export class CreateDoctorComponent implements OnInit {
           description: this.doctorForm.get('doctorDescription').value,
           business_type: this.doctorForm.get('businessType').value,
           phone: this.doctorForm.get('phone').value,
-          email: this.doctorForm.get('email').value
+          email: this.doctorForm.get('email').value,
+          consultationDuration: this.doctorForm.get('consultationDuration').value,
+          consultationCharge: this.doctorForm.get('consultationCharge').value,
+          entity: this.doctorForm.get('entity').value,
+          entityName: this.doctorForm.get('entityName').value
         };
   
         // Save the data using the service
