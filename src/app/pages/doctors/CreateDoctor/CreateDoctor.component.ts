@@ -26,6 +26,7 @@ export class CreateDoctorComponent implements OnInit {
   consultationCharge: string = '';
   entity: string = '';
   entityName: string = '';
+  file: string = '';
 
   doctorForm: FormGroup;
   
@@ -50,7 +51,8 @@ export class CreateDoctorComponent implements OnInit {
         consultationDuration: ['', Validators.required],
         consultationCharge: ['', Validators.required],
         entity: ['', Validators.required],
-        entityName: ['', Validators.required]
+        entityName: ['', Validators.required],
+        file: ['', Validators.required]
         // Add more fields and validators as needed
       });
   
@@ -91,7 +93,8 @@ export class CreateDoctorComponent implements OnInit {
           consultationDuration: this.doctorForm.get('consultationDuration').value,
           consultationCharge: this.doctorForm.get('consultationCharge').value,
           entity: this.doctorForm.get('entity').value,
-          entityName: this.doctorForm.get('entityName').value
+          entityName: this.doctorForm.get('entityName').value,
+          file: this.doctorForm.get('file').value
         };
   
         // Save the data using the service
