@@ -6,19 +6,20 @@
       <div class="col-md-12">
         <div class="card">
           <div class="header">
-            <div class="row">
+            <div class="row align-items-center">
               <div class="col-md-6">
                 <h4 class="title">Doctors List</h4>
               </div>
-              <div class="col-md-3 text-right">
-                <button mat-button class="btn btn-info fw-normal" (click)="CreateDoctor();">Add Doctor</button>
-              </div>
-              <div class="col-md-3">
-                <div class="search-container">
-                  <!-- Bind the input value to the searchValue property -->
-                  <!-- Bind the input value to the searchValue property and update applyFilter method call -->
-                  <input type="text" class="form-control small-search" placeholder="Search" (input)="applyFilter($event.target.value)">
-
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="search-container">
+                      <input type="text" class="form-control small-search" placeholder="Search" (input)="applyFilter($event.target.value)">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <button mat-button class="btn btn-info" (click)="CreateDoctor();">Add Doctor</button>
+                  </div>
                 </div>
               </div>
             </div>

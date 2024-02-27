@@ -24,8 +24,9 @@
 
 /* Mimic the FormControl and InputLabel styles */
 .form-control {
-  width: 100px;
-  margin-bottom: 16px; /* Adjust as needed */
+  width: 100%;
+  // margin-bottom: 16px; /* Adjust as needed */
+  margin-top: 10px 
 }
 
 /* Mimic the Select and MenuItem styles */
@@ -36,6 +37,6 @@
 } 
 .small-button {
   font-size: 12px; 
-  padding: 10px 10px;
+  // padding: 10px 10px;
   margin-right: 100px;
 }

@@ -6,25 +6,29 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <div class="row">
-                            <!-- <div class="col-md-6"> -->
-                                <!-- <h4 class="title">Departments List</h4> -->
-                            <!-- </div> -->
+                        <!-- <div class="row"> -->
+                            <div class="col-md-12"> 
+                                 <h4 class="title">Departments List</h4> 
+                            </div>
+                            <br>
                             <!-- <p>
                     <mat-checkbox [formControl]="disableSelect">Disable select</mat-checkbox>
                   </p> -->
                             <!-- <h4>mat-select</h4> -->
-
+                            <div class="row">
                             <div class="col-md-6">
-                                <div>
-                                    <input type="text" style="width: 500px; height: 40px; font-size: 16px;" placeholder="Search"
+                                <!-- <div>
+                                    <input type="text" style="font-size: 16px;" placeholder="Search"
                                            [(ngModel)]="searchValue" (input)="applyFilter(searchValue)">
-                                </div>
+                                </div> -->
+                                <div class="search-container">
+                                    <input type="text" class="form-control small-search" placeholder="Search" (input)="applyFilter($event.target.value)">
+                                  </div>
                                 
                             </div>
 
                             
-                            <mat-form-field class="col-md-2" style="margin-left: 150px;">
+                            <mat-form-field class="col-md-3">
                                 <mat-label>Select Entity</mat-label>
                                 <mat-select [(value)]="selectedDepartment" (selectionChange)="onEntityChange($event)">
                                     <mat-option *ngFor="let entity of entityList" [value]="entity.entity_id">
@@ -35,13 +39,13 @@
 
                             
 
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <button mat-button class="btn btn-info fw-normal small-button" (click)="CreateDepartment();">Add Department</button>
                             </div>
 
 
-                        <!-- </div> -->
-                    </div>
+                        </div>
+                    <!-- </div> -->
                     <div class="content table-responsive table-full-width">
                         <table mat-table [dataSource]="dataSource" class="text-nowrap w-100" style="width: 100%;">
 
