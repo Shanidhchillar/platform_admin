@@ -35,7 +35,10 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Contact Number</label>
-                      <input type="text" class="form-control" placeholder="Contact Number" formControlName="phone">
+                      <input type="text" class="form-control" (input)="restrictToNumbers($event)" placeholder="Contact Number" formControlName="phone">
+                      <small *ngIf="doctorForm.get('phone').hasError('required') && doctorForm.get('phone').touched" style="color: red;margin-left: 8px;">Phone number is required.</small>
+                      <small *ngIf="doctorForm.get('phone').hasError('pattern') && doctorForm.get('phone').touched" style="color: red;margin-left: 8px;">Phone number must contain only numbers.</small>
+                      <small *ngIf="doctorForm.get('phone').hasError('minlength') && doctorForm.get('phone').touched" style="color: red;margin-left: 8px;">Phone number must be at least 10 digits.</small>
                     </div>
                   </div>
                 </div>
