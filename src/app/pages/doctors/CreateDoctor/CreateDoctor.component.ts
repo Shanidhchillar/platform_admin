@@ -5,6 +5,15 @@ import { Router } from '@angular/router';
 import { CreateDoctorsDataService } from 'app/services/createDoctor.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from 'app/services/snackbar.service';
+import { AuthService } from 'app/services/auth.service';
+
+export interface PeriodicElement {
+  ID: number;
+  department_name: string;
+  status: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [];
 
 @Component({
   selector: 'app-create-doctor',
@@ -27,6 +36,10 @@ export class CreateDoctorComponent implements OnInit {
   // entity: string = '';
   // entityName: string = '';
   file: string = '';
+  isLoading: boolean = false;
+  originalData: PeriodicElement[] = [];
+  dataSource: PeriodicElement[] = ELEMENT_DATA;
+  departments: any[] = [];
 
   doctorForm: FormGroup;
   
@@ -35,7 +48,8 @@ export class CreateDoctorComponent implements OnInit {
       private sweetAlertService: SweetAlertService,
       private router: Router,
       private createDoctorsDataService: CreateDoctorsDataService,
-      private snackbarService: SnackbarService
+      private snackbarService: SnackbarService,
+      private service: AuthService
       ) {}
 
     ngOnInit() {
@@ -56,6 +70,8 @@ export class CreateDoctorComponent implements OnInit {
         // Add more fields and validators as needed
       });
   
+
+      this.getDepartments();
       // You can log the form's validity here
       console.log('Form is valid:', this.doctorForm.valid);
     }  
@@ -141,6 +157,41 @@ export class CreateDoctorComponent implements OnInit {
         // Set minlength error
         this.doctorForm.get('phone')?.setErrors({ minlength: true });
       }
+    }
+
+
+    getDepartments() {
+      this.isLoading = true;
+  
+      // Retrieve the selected entity_id
+      const api_params = {
+        entity_id: ""
+      };
+    
+      // Pass the parameters to the API call
+      this.service.post(api_params, '/api/v1/auth/list-departments').subscribe(
+        (response) => {
+          if (response.statusCode === 200) {
+            this.originalData = response.data.data.map((department: any) => ({
+              ID: department.department_id,
+              department_name: department.department_name,
+              status: department.status
+            }));
+    
+    
+            // Assign the data to dataSource
+            this.dataSource = [...this.originalData];
+          } else if (response.statusCode === 404) {
+            this.snackbarService.showCustomSnackBarError(response.message);
+          }
+          this.isLoading = false;
+        },
+        (error) => {
+          this.isLoading = false;
+          console.error('API call failed:', error);
+          this.snackbarService.showCustomSnackBarError(error);
+        }
+      );
     }
   }
 
