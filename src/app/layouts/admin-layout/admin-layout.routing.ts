@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from '../../pages/home/home.component';
-import { TypographyComponent } from '../../typography/typography.component';
+import { TypographyComponent } from '../../pages/typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
 // import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
