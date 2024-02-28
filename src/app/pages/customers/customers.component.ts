@@ -7,7 +7,7 @@ import { SnackbarService } from 'app/services/snackbar.service';
 
 export interface PeriodicElement {
   ID: number;
-  name: string;
+  customerName: string;
   phone: string;
 }
 
@@ -21,7 +21,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 export class CustomersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['ID', 'name', 'phone','action'];
+  displayedColumns: string[] = ['ID', 'customerName', 'phone','action'];
   originalData: PeriodicElement[] = [];
   pageSize: number = 5;
   pageIndex = 0;
@@ -31,6 +31,7 @@ export class CustomersComponent implements OnInit {
   isLoading: boolean = false;
   dataSource: PeriodicElement[] = ELEMENT_DATA;
   searchQuery: string = ''; // Initialize searchQuery
+  ID: number = 1;
 
   constructor(
     private router: Router,
@@ -58,8 +59,8 @@ export class CustomersComponent implements OnInit {
         if (response.statusCode === '200') {
           this.originalData = response.data.response.map(
             (customer: any) => ({
-              ID: customer.id,
-              customer_name: customer.name,
+              ID: this.ID++,
+              customerName: customer.customerName,
               phone: customer.phone,
             })
           );

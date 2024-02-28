@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { SweetAlertService } from './SweetAlertService';
+import { SweetAlertService } from 'app/services/SweetAlertService';
 import { Router } from '@angular/router';
 import { CreateDoctorsDataService } from 'app/services/createDoctor.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

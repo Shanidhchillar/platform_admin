@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { Interceptor } from './services/interceptor';
 import { LoaderComponent } from './components/loader/loader.component';
+import { CustomerHistoryComponent } from './pages/customer-history/customer-history.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     AppComponent,
     AdminLayoutComponent,
     LoginLayoutComponent,
-    LoaderComponent
+    LoaderComponent,
+    CustomerHistoryComponent
   ],
   providers: [
     {
