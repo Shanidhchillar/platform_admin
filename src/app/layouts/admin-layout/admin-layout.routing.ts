@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from '../../home/home.component';
+import { HomeComponent } from '../../pages/home/home.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
 // import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { UserComponent } from 'app/pages/user/user.component';
 import { DoctorsComponent } from 'app/pages/doctors/doctors.component';
 import { CustomersComponent } from 'app/pages/customers/customers.component';
