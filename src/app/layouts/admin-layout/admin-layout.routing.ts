@@ -14,6 +14,7 @@ import { ReportComponent } from 'app/pages/report/report.component';
 import { BankComponent } from 'app/pages/bank/bank.component';
 import { DepartmentsComponent } from 'app/pages/departments/departments.component';
 import { EditDoctorComponent } from 'app/pages/doctors/EditDoctor/editDoctor.component';
+import { DoctorDetailsComponent } from 'app/pages/doctors/DoctorDetails/DoctorDetails.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
@@ -25,6 +26,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'report',     component: ReportComponent },
     { path: 'bank',          component: BankComponent },
     { path: 'edit_doctor',           component: EditDoctorComponent },
+    { path: 'doctor_details',      component:DoctorDetailsComponent}
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent },
 ];

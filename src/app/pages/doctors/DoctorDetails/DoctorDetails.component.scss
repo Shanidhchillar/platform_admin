@@ -1,0 +1,156 @@
+// body {
+//   background-color: white !important;
+// }
+
+.date-title {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .date {
+    border-radius: 12px !important;
+  }
+  
+  @media (max-width: 767px) {
+    .input-group.date {
+        position: relative;
+    }
+  
+    .input-group-append {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0; /* Change from left to right */
+        z-index: 2;
+    }
+  
+    .input-group-text {
+        height: 100%;
+        cursor: pointer;
+    }
+  }
+  
+  .time-picker {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .card {
+    border-radius: 25px;
+    background: #EBEBEA;
+    border: none;
+  }
+  
+  .card-img {
+    border-radius: 20px !important;
+  }
+  
+  .time-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .time-option {
+    width: calc(33.33% - 10px);
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 0.5px solid #BBB;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .time-option.active {
+    background-color: #5d87ff;
+    color: white;
+  }
+  
+  .time-option:hover {
+    background-color: #e2e6ea;
+  }
+  
+  @media (max-width: 767px) {
+    .time-option.active {
+        background-color: #5d87ff;
+        color: white;
+    }
+  }
+  
+  .btn {
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(to right, #60c8ff, #5d87ff);
+    color: white !important;
+  }
+  
+  .btn:hover {
+    background: #5d87ff;
+  }
+  
+  .time-option.booked {
+    background-color: #ccc;
+    /* Set the background color for booked slots */
+    color: #666;
+    /* Set the text color for booked slots */
+    cursor: not-allowed;
+    /* Set the cursor style for booked slots */
+  }
+  
+  .datepicker .day.disabled {
+    background-color: #eee;
+    /* Set the background color for inactive dates */
+    color: #aaa;
+    /* Set the text color for inactive dates */
+    cursor: not-allowed;
+    /* Set the cursor style for inactive dates */
+  }
+  
+  
+  .disabled {
+    // Add your styles for disabled time slots
+    opacity: 0.5; // This is just an example, you can customize it as needed
+    pointer-events: none; 
+  }
+  
+  .datepicker input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    // background-image: url('../../../assets/calendar.png');
+    background-repeat: no-repeat;
+    width: 25%; /* Set the desired icon size */
+    height: 100%; /* Set the desired icon size */
+    background-position: right center; /* Align the image to the right */
+  
+  }
+  .truncated {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+  
+  .expanded {
+    -webkit-line-clamp: initial; /* Show all lines when expanded */
+  }
+  .toggleBtn{
+    padding: 8px;
+  width: 100px;
+    margin-top: 8px;
+    text-decoration: underline;
+    border: none;
+  }
+  
+  
+  @media (max-width: 500px) {
+    .card img {
+        width: 20%;
+    }
+  }
