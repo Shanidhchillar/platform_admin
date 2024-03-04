@@ -15,6 +15,7 @@ import { BankComponent } from 'app/pages/bank/bank.component';
 import { DepartmentsComponent } from 'app/pages/departments/departments.component';
 import { EditDoctorComponent } from 'app/pages/doctors/EditDoctor/editDoctor.component';
 import { DoctorDetailsComponent } from 'app/pages/doctors/DoctorDetails/DoctorDetails.component';
+import { CustomerHistoryComponent } from 'app/pages/customer-history/customer-history.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: HomeComponent },
@@ -26,7 +27,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'report',     component: ReportComponent },
     { path: 'bank',          component: BankComponent },
     { path: 'edit_doctor',           component: EditDoctorComponent },
-    { path: 'doctor_details',      component:DoctorDetailsComponent}
+    { path: 'doctor_details',      component:DoctorDetailsComponent},
+    { path: 'customer-history/id', component: CustomerHistoryComponent },  // Dynamic route parameter ':id'
+    // { path: '', redirectTo: '/customer', pathMatch: 'full' },
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent },
 ];

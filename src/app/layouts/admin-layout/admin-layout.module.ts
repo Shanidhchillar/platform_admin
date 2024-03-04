@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { DepartmentsComponent } from 'app/pages/departments/departments.component';
 import { BankComponent } from 'app/pages/bank/bank.component';
 import { EditDoctorComponent } from 'app/pages/doctors/EditDoctor/editDoctor.component';
+import { CustomerHistoryComponent } from 'app/pages/customers/customer-history/customer-history.component';
 
 
 
@@ -51,7 +52,8 @@ import { EditDoctorComponent } from 'app/pages/doctors/EditDoctor/editDoctor.com
     CustomersComponent,
     ReportComponent,
     BankComponent,
-    EditDoctorComponent
+    EditDoctorComponent,
+    CustomerHistoryComponent
     // TypographyComponent,
     // IconsComponent,
     // MapsComponent,
