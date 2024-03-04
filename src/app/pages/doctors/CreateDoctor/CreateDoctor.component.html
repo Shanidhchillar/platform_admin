@@ -30,6 +30,7 @@
                     <div class="form-group">
                       <label>Doctor Name</label>
                       <input type="text" class="form-control" placeholder="Doctor Name" formControlName="doctorName">
+                      <small *ngIf="doctorForm.get('doctorName').hasError('required') && doctorForm.get('doctorName').touched" style="color: red;margin-left: 8px;">Name is required.</small>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -47,12 +48,14 @@
                     <div class="form-group">
                       <label>Doctor Qualification</label>
                       <input type="text" class="form-control" placeholder="Doctor qualification" formControlName="doctorQualification">
+                      <small *ngIf="doctorForm.get('doctorQualification').hasError('required') && doctorForm.get('doctorQualification').touched" style="color: red;margin-left: 8px;">Doctor qualification is required.</small>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Email</label>
                       <input type="text" class="form-control" placeholder="Email" formControlName="email">
+                      <small *ngIf="doctorForm.get('email').hasError('required') && doctorForm.get('email').touched" style="color: red;margin-left: 8px;">Email is required.</small>
                     </div>
                   </div>
                 </div>
@@ -61,12 +64,14 @@
                       <div class="form-group">
                         <label>Consultation Duration</label>
                         <input type="number" class="form-control" placeholder="Consultation Duration" formControlName="consultationDuration">
+                        <small *ngIf="doctorForm.get('consultationDuration').hasError('required') && doctorForm.get('consultationDuration').touched" style="color: red;margin-left: 8px;">Consultation duration is required.</small>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>Consultation Charge</label>
                         <input type="number" class="form-control" placeholder="Consultation Charge" formControlName="consultationCharge">
+                        <small *ngIf="doctorForm.get('consultationCharge').hasError('required') && doctorForm.get('consultationCharge').touched" style="color: red;margin-left: 8px;">Consultation charge is required.</small>
                       </div>
                     </div>
                   </div>
@@ -146,6 +151,7 @@
                     <div class="form-group">
                       <label>Doctor Description</label>
                       <textarea rows="5" class="form-control" placeholder="Doctor description" formControlName="doctorDescription"></textarea>
+                      <small *ngIf="doctorForm.get('doctorDescription').hasError('required') && doctorForm.get('doctorDescription').touched" style="color: red;margin-left: 8px;"><Datag></Datag>Description is required.</small>
                     </div>
                   </div>
                 </div>
